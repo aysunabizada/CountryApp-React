@@ -10,7 +10,7 @@ function Search({setSearch}) {
                         </svg>
                     </button>
                 </span>
-                <input onChange={(e) => {setSearch(e.target.value)} } type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none dark:bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-default-600" />
+                <input onChange={(e) => {setSearch(e.target.value)} } type="search" name="Search" placeholder="Search..." className="w-44 py-2 pl-10 text-sm rounded-md sm:w-72 focus:outline-none dark:bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-default-600" />
             </div>
         </fieldset>
     )

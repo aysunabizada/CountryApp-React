@@ -13,7 +13,6 @@ function App() {
     axios.get("https://raw.githubusercontent.com/TheOksigen/purfect_data/main/country.json")
       .then(res => setData(res.data))
   }, [])
-  console.log(data);
 
   return (
     <>
