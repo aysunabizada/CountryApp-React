@@ -1,20 +1,22 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { ThmCntx } from "../data/ThemeContex"
 
 function Header() {
     const [status, setStatus] = useState(false)
+    const {theme, setTheme} = useContext(ThmCntx)
     return (
-        <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
+        <header className={`p-4 ${theme ? "dark:bg-gray-100": "bg-slate-900 text-gray-300"}`}>
             <nav className="container flex justify-between h-16 mx-auto md:justify-center md:space-x-8 md:items-stretch items-center">
                 <ul className="items-stretch hidden space-x-3 md:flex">
                     <li className="flex">
-                        <Link to='Europe' rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-">Europe</Link>
+                        <Link to='region/Europe' rel="noopener noreferrer" href="#" className={`flex items-center px-4 -mb-1 ${theme ? "border-b-2" : "border-0"}  dark:border-`}>Europe</Link>
                     </li>
                     <li className="flex">
-                        <Link to='Asia' rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-">Asia</Link>
+                        <Link to='region/Asia' rel="noopener noreferrer" href="#" className={`flex items-center px-4 -mb-1 ${theme ? "border-b-2" : "border-0"}  dark:border-`}>Asia</Link>
                     </li>
                     <li className="flex">
-                        <Link to='Americas' rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-default-600 dark:border-default-600">Americas</Link>
+                        <Link to='region/Americas' rel="noopener noreferrer" href="#" className={`flex items-center px-4 -mb-1 ${theme ? "border-b-2" : "border-0"}  dark:border-`}>Americas</Link>
                     </li>
                 </ul>
                 <Link to='/' rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2">
@@ -25,16 +27,16 @@ function Header() {
                 </Link>
                 <ul className="items-stretch hidden space-x-3 md:flex">
                     <li className="flex">
-                        <Link to='Africa' rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-">Africa</Link>
+                        <Link to='region/Africa' rel="noopener noreferrer" href="#" className={`flex items-center px-4 -mb-1 ${theme ? "border-b-2" : "border-0"}  dark:border-`}>Africa</Link>
                     </li>
                     <li className="flex">
-                        <Link to='Oceania' rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-">Oceania</Link>
+                        <Link to='region/Oceania' rel="noopener noreferrer" href="#" className={`flex items-center px-4 -mb-1 ${theme ? "border-b-2" : "border-0"}  dark:border-`}>Oceania</Link>
                     </li>
                     <li className="flex">
-                        <Link to='Antarctic' rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-">Antractic</Link>
+                        <Link to='region/Antarctic' rel="noopener noreferrer" href="#" className={`flex items-center px-4 -mb-1 ${theme ? "border-b-2" : "border-0"}  dark:border-`}>Antractic</Link>
                     </li>
                 </ul>
-                <button className="">
+                <button className="" onClick={() => setTheme(!theme)}>
                     <svg className="hs-dark-mode-active:hidden w-8 h-8 block fa-moon text-gray-400" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
                     </svg>
@@ -45,14 +47,14 @@ function Header() {
                     </svg>
                 </button>
             </nav>
-            <div className={`${status ? 'block' : 'hidden'} bg-slate-100 pb-6`}>
+            <div className={`${status ? 'block' : 'hidden'} ${theme ? "dark:bg-slate-100": "bg-slate-900 text-gray-300"} pb-6`}>
                 <ul className="gap-8 items-center flex flex-col justify-center ">
-                    <li className="flex border-b-2 dark:border- w-[50vw] justify-center"><Link to='Europe' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Europe</Link></li>
-                    <li className="flex border-b-2 dark:border- w-[50vw] justify-center"><Link to='Asia' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Asia</Link></li>
-                    <li className="flex border-b-2 dark:border- w-[50vw] justify-center"><Link to='Americas' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Americas</Link></li>
-                    <li className="flex border-b-2 dark:border- w-[50vw] justify-center"><Link to='Africa' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Africa</Link></li>
-                    <li className="flex border-b-2 dark:border- w-[50vw] justify-center"><Link to='Oceania' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Oceania</Link></li>
-                    <li className="flex border-b-2 dark:border- w-[50vw] justify-center"><Link to='Antarctic' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Antractic</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Europe' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Europe</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Asia' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Asia</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Americas' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Americas</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Africa' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Africa</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Oceania' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Oceania</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Antarctic' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Antractic</Link></li>
                 </ul>
             </div>
         </header>
