@@ -49,12 +49,12 @@ function Header() {
             </nav>
             <div className={`${status ? 'block' : 'hidden'} ${theme ? "dark:bg-slate-100": "bg-slate-900 text-gray-300"} pb-6`}>
                 <ul className="gap-8 items-center flex flex-col justify-center ">
-                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Europe' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Europe</Link></li>
-                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Asia' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Asia</Link></li>
-                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Americas' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Americas</Link></li>
-                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Africa' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Africa</Link></li>
-                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Oceania' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Oceania</Link></li>
-                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='Antarctic' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Antractic</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='region/Europe' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Europe</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='region/Asia' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Asia</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='region/Americas' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Americas</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='region/Africa' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Africa</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='region/Oceania' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Oceania</Link></li>
+                    <li className={`flex dark:border- w-[50vw] justify-center ${theme ? "border-b-2" : "border-0"}`}><Link to='region/Antarctic' rel="noopener noreferrer" href="#" className="flex items-center mb-1">Antractic</Link></li>
                 </ul>
             </div>
         </header>
