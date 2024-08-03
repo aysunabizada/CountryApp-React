@@ -1,13 +1,21 @@
-import React, { createContext, useState } from 'react'
-export const ThmCntx = createContext()
+import React, { createContext, useState, useEffect } from 'react';
+export const ThmCntx = createContext();
 
-function ThemeContex({children}) {
-    const [theme, setTheme] = useState(true)
+function ThemeContex({ children }) {
+    const [theme, setTheme] = useState(() => {
+        const savedTheme = localStorage.getItem('theme')
+        return savedTheme !== null ? JSON.parse(savedTheme) : true;
+    })
+
+    useEffect(() => {
+        localStorage.setItem('theme', JSON.stringify(theme))
+    }, [theme]);
+
     return (
-        <ThmCntx.Provider value={{theme, setTheme}}>
+        <ThmCntx.Provider value={{ theme, setTheme }}>
             {children}
         </ThmCntx.Provider>
     )
 }
 
-export default ThemeContex
+export default ThemeContex;

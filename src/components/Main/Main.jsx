@@ -27,7 +27,7 @@ function Main() {
                     <a href="#go"><button className="py-3 w-[180px] text-[1.1em] rounded-md border border-black cursor-pointer">Go to countries...</button></a>
                 </div>
             </div>
-            <RandomCard data={data} /> <br />
+            {!openSearch && <RandomCard data={data} />} <br />
             <div className="flex flex-wrap justify-center gap-6 py-6" id='go'>
                 {
                     data ? data
