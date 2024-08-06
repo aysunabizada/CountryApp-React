@@ -4,7 +4,7 @@ import { ThmCntx } from '../../data/ThemeContex';
 import { Cntx } from '../../data/DataContex';
 
 function CardInfo() {
-    const data = useContext(Cntx)
+    const {data} = useContext(Cntx)
     const  {theme}  = useContext(ThmCntx)
     const { alpha3Code } = useParams()
     const elem = data.find(item => item.alpha3Code == alpha3Code)

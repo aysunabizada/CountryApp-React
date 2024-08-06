@@ -7,7 +7,7 @@ import Error404 from "./Error/Error404";
 
 function Region() {
     const { theme } = useContext(ThmCntx);
-    const data = useContext(Cntx);
+    const {data} = useContext(Cntx);
     const { region } = useParams()
     const filteredData = data.filter(item => item.region.toLowerCase() === region.toLowerCase())
     if (filteredData.length === 0) return <Error404 />

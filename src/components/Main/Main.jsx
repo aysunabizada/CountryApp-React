@@ -8,11 +8,21 @@ import { ThmCntx } from '../../data/ThemeContex';
 dotSpinner.register();
 
 function Main() {
-    const data = useContext(Cntx);
+    const {wishList, setWishList, data} = useContext(Cntx);
     const {theme} = useContext(ThmCntx);
     const [openSearch, setOpenSearch] = useState(false);
     const [search, setSearch] = useState('');
     const [count, setCount] = useState(12);
+    function handleWishlist(e, alpha3Code, item) {
+        e.preventDefault();
+        const index = wishList.findIndex(wishItem => wishItem.alpha3Code === alpha3Code);
+        if (index !== -1) {
+            setWishList(wishList.filter(wishItem => wishItem.alpha3Code !== alpha3Code));
+        } else {
+            setWishList([...wishList, item]);
+        }
+        console.log(wishList);
+    }
     return (
         <main className={`${theme ? "dark:bg-white": "bg-slate-800 text-gray-300"}`}>
             <div className="text-center py-12">
@@ -34,7 +44,7 @@ function Main() {
                         .filter(item => item.name.toLowerCase().startsWith(search.toLowerCase()))
                         .slice(0, count)
                         .map((item, i) => (
-                            <Card key={i} item={item}/>
+                            <Card key={i} item={item} handleWishlist={handleWishlist}/>
                         )) : <l-dot-spinner size="40" speed="0.9" color="#6366F1"></l-dot-spinner>
                 }
             </div>
